@@ -1,0 +1,21 @@
+{
+  "name": "group-project",
+  "version": "0.0.0",
+  "authors": [
+    "jasondawson <jason.c.dawson@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "jqueryui": "~1.11.3",
+    "bootstrap": "~3.3.2",
+    "bubble-chart": "*"
+  }
+}

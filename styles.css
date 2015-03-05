@@ -1,0 +1,43 @@
+/* * {
+	outline: 1px solid red;
+} */
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background: #616161;
+}
+
+#view {
+	position: fixed;
+	width: 900px;
+	height: 600px;
+	border: 1px solid black;
+	border-radius: 12px;
+	margin: 70px auto 0 50px;
+	background: #212121;
+}
+
+.view-canvas {
+	width: 900px;
+	height: 600px;
+	position: relative;
+	right: 15px;
+}
+
+.box {
+    position: absolute; 
+	border: 1px solid black;
+	border-radius: 12px;
+	background: rgba(255,255,255,1);
+	z-index: 1;
+}
+
+
+.box:hover {
+	background: rgba(200,200,200, .4);
+	z-index: 1000;
+	transform: scale(1.2);
+	};
+
