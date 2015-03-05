@@ -5,6 +5,7 @@ $(document).ready(function() {
  		objArr.sort(function(a, b) {
  			return b.likes - a.likes;
  		})
+ 		console.log('Max ' + objArr[0].likes)
        return objArr[0].likes;
   }
 
@@ -12,6 +13,7 @@ $(document).ready(function() {
  		objArr.sort(function(a, b) {
  			return a.likes - b.likes;
  		})
+ 		console.log('Min ' + objArr[0].likes)
        return objArr[0].likes;
   }
 
@@ -52,17 +54,17 @@ var imgs = [
 	{'id': 9, 'url': '/img/9.jpg', 'likes': Math.random() * 1500},
 	{'id': 10, 'url': '/img/k2.jpg', 'likes': Math.random() * 1500},
 	{'id': 10, 'url': '/img/1.jpg', 'likes': Math.random() * 1500},
-/*	{'id': 11, 'url': '/img/2.jpg', 'likes': 420},
-	{'id': 11, 'url': '/img/3.jpg', 'likes': 334},
-	{'id': 12, 'url': '/img/4.jpg', 'likes': 300},
-	{'id': 12, 'url': '/img/5.jpg', 'likes': 240},
-	{'id': 13, 'url': '/img/6.jpg', 'likes': 88},
-	{'id': 10, 'url': '/img/1.jpg', 'likes': 460},
-	{'id': 11, 'url': '/img/2.jpg', 'likes': 420},
-	{'id': 11, 'url': '/img/3.jpg', 'likes': 334},
-	{'id': 12, 'url': '/img/4.jpg', 'likes': 300},
-	{'id': 12, 'url': '/img/5.jpg', 'likes': 240},
-	{'id': 13, 'url': '/img/6.jpg', 'likes': 88},
+	{'id': 11, 'url': '/img/2.jpg', 'likes': Math.random() * 1500},
+	{'id': 11, 'url': '/img/3.jpg', 'likes': Math.random() * 1500},
+	{'id': 12, 'url': '/img/4.jpg', 'likes': Math.random() * 1500},
+	{'id': 12, 'url': '/img/5.jpg', 'likes': Math.random() * 1500},
+	{'id': 13, 'url': '/img/6.jpg', 'likes': Math.random() * 1500},
+	{'id': 10, 'url': '/img/1.jpg', 'likes': Math.random() * 1500},
+	{'id': 11, 'url': '/img/2.jpg', 'likes': Math.random() * 1500},
+	{'id': 11, 'url': '/img/3.jpg', 'likes': Math.random() * 1500},
+	{'id': 12, 'url': '/img/4.jpg', 'likes': Math.random() * 1500},
+	{'id': 12, 'url': '/img/5.jpg', 'likes': Math.random() * 1500},
+/*	{'id': 13, 'url': '/img/6.jpg', 'likes': 88},
 	{'id': 10, 'url': '/img/1.jpg', 'likes': 460},
 	{'id': 11, 'url': '/img/2.jpg', 'likes': 420},
 	{'id': 11, 'url': '/img/3.jpg', 'likes': 334},
@@ -85,6 +87,7 @@ var imgs = [
 //set w and h proportional to relative upvote count
 
 //put images in tempArr, sorted by likes descending
+var imgArrLength = imgs.length;
 var tempImgs = imgs.sort(function compare(a,b) {
   if (a.likes > b.likes)
      return -1;
@@ -94,17 +97,17 @@ var tempImgs = imgs.sort(function compare(a,b) {
 }
 );
 
-console.log(tempImgs);
+console.log(tempImgs[0]);
 
   var maxWidth = 300;
   var minWidth = 60;
   var maxHeight = 200;
   var minHeight = 40;
   var overlap = 6;
-  var maxLikes = getMaxOfArray(tempImgs);
-  //console.log(maxLikes);
   var minLikes = getMinOfArray(tempImgs);
   //console.log(minLikes);
+  var maxLikes = getMaxOfArray(tempImgs);
+  //console.log(maxLikes);
 
 var setSizes = function(imgArr) {
 /* var total = 0;*/
@@ -118,14 +121,14 @@ var setSizes = function(imgArr) {
 	maxWidth = maxWidth - ((maxWidth - minWidth)*.67);
 	maxHeight = maxHeight - ((maxHeight - minHeight)*.67);
 	console.log(maxWidth);
-
-    for (var i = 1; i < imgArr.length; i++) {
+    for (var i = 1; i < imgArrLength; i++) {
 	    var percentage = (imgArr[i].likes - minLikes) / (maxLikes - minLikes);
 	    var calcWidth = minWidth + (percentage * (maxWidth - minWidth));
 	    var calcHeight = minHeight + (percentage * (maxHeight - minHeight));
 
 	    imgArr[i].w = calcWidth;
 	    imgArr[i].h = calcHeight;
+	    console.log(imgArr[i].likes);
 	    console.log(i + ':  w: ' + imgArr[i].w + ' h: ' + imgArr[i].h);
 	}
 }
@@ -200,12 +203,12 @@ var placeOne = function(imageObj, first, index) {
 			'background-repeat' 	: 'no-repeat',
 			'background-position'	: 'left top',
 			'background-size'		: '100% 100%',
-			'z-index'				: tempImgs.length - index
+			'z-index'				: imgArrLength - index
 			})
 		if(first) {
 			newImg.attr("id","img1");
 			newImg.css({
-				'z-index': tempImgs.length
+				'z-index': imgArrLength
 			})
 		}
 };
@@ -214,9 +217,7 @@ var placeOne = function(imageObj, first, index) {
 var placeMainImg = function(imageObj) {
 	tempImgs[0].left = xCenter - imageObj.w/2;
 	tempImgs[0].top  = yCenter - imageObj.h/2;
-	tempImgs[0].w    = maxWidth;
-	tempImgs[0].h 	 = maxHeight;
-	placeOne(imgs[0], true);
+	placeOne(tempImgs[0], true);
 	filledImgs.push({   'x': tempImgs[0].left,
 						'y': tempImgs[0].top,
 						'w': tempImgs[0].w,
@@ -230,15 +231,15 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 		newImg.css({
 			'height'				: imgObj2nd.h,
 			'width'					: imgObj2nd.w,
-			'top'					: imgObj2nd.top + topOffset,
-			'left'					: imgObj2nd.left + leftOffset,
+/*			'top'					: imgObj2nd.top + topOffset,
+			'left'					: imgObj2nd.left + leftOffset,*/
 			'border'				: '1px solid black',
 			'border-radius' 		: '12px',
 			'background-image'  	: 'url(' + imgObj2nd.url + ')',
 			'background-repeat' 	: 'no-repeat',
 			'background-position'	: 'left top',
 			'background-size'		: '100% 100%',
-			'z-index'				: tempImgs.length - 1
+			'z-index'				: imgArrLength - 1
 			})
 			.position({
 				my: "left",
@@ -260,15 +261,15 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 		newImg2.css({
 			'height'				: imgObj3rd.h,
 			'width'					: imgObj3rd.w,
-			'top'					: imgObj3rd.top + topOffset,
-			'left'					: imgObj3rd.left + leftOffset,
+/*			'top'					: imgObj3rd.top + topOffset,
+			'left'					: imgObj3rd.left + leftOffset,*/
 			'border'				: '1px solid black',
 			'border-radius' 		: '12px',
 			'background-image'  	: 'url(' + imgObj3rd.url + ')',
 			'background-repeat' 	: 'no-repeat',
 			'background-position'	: 'left top',
 			'background-size'		: '100% 100%',
-			'z-index'				: tempImgs.length - 2
+			'z-index'				: imgArrLength - 2
 			})
 			.position({
 				my: "right",
@@ -385,14 +386,15 @@ bounds = {
 //console.log('bounds:');
 //console.log(bounds);
 //place first image
-
+console.log('first image');
+console.log(tempImgs[0]);
 placeMainImg(tempImgs[0]);
 placeSecondAndThird(tempImgs[1], tempImgs[2]);
 
 //loop through images and populate location property
 
 //first 3 images have already been placed, so i starts at 3
-for (var i = 3; i < tempImgs.length; i++) {
+for (var i = 3; i < imgArrLength; i++) {
 	//attach position info to imgs
 	getPosition(tempImgs[i], i, function(imgObjWithPosition) {
 		tempImgs[i] = imgObjWithPosition;
@@ -401,7 +403,7 @@ for (var i = 3; i < tempImgs.length; i++) {
 //console.log(tempImgs);
 
 //first 3 images have already been placed, so i starts at 3
-for (var i = 3; i < tempImgs.length; i++) {
+for (var i = 3; i < imgArrLength; i++) {
 	placeOne(tempImgs[i], false, i);
 }
 
