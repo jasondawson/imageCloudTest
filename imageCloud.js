@@ -5,7 +5,7 @@ $(document).ready(function() {
  		objArr.sort(function(a, b) {
  			return b.likes - a.likes;
  		})
- 		console.log('Max ' + objArr[0].likes)
+ 		//console.log('Max ' + objArr[0].likes)
        return objArr[0].likes;
   }
 
@@ -13,57 +13,57 @@ $(document).ready(function() {
  		objArr.sort(function(a, b) {
  			return a.likes - b.likes;
  		})
- 		console.log('Min ' + objArr[0].likes)
+ 		//console.log('Min ' + objArr[0].likes)
        return objArr[0].likes;
   }
 
 //get images (will not have w and h)
 var imgs = [
-	{'id': 1, 'url': '/img/k2.jpg', 'likes': Math.random() * 1500},
-	{'id': 2, 'url': '/img/3.jpg', 'likes': Math.random() * 1500},
-	{'id': 2, 'url': '/img/2.jpg', 'likes': Math.random() * 1500},
-	{'id': 3, 'url': 'http://res.cloudinary.com/di5ktveen/image/upload/v1425511757/mud2ayqllyzjpx8uluse.jpg', 'likes': Math.random() * 1500},
-	{'id': 4, 'url': '/img/4.jpg', 'likes': Math.random() * 1500},
-	{'id': 5, 'url': '/img/5.jpg', 'likes': Math.random() * 1500},
-	{'id': 6, 'url': '/img/6.jpg', 'likes': Math.random() * 1500},
-	{'id': 7, 'url': '/img/7.jpg', 'likes': Math.random() * 1500},
-	{'id': 7, 'url': '/img/8.jpg', 'likes': Math.random() * 1500},
-	{'id': 8, 'url': '/img/9.jpg', 'likes': Math.random() * 1500},
-	{'id': 8, 'url': '/img/k2.jpg', 'likes': Math.random() * 1500},
-	{'id': 9, 'url': '/img/1.jpg', 'likes': Math.random() * 1500},
-	{'id': 9, 'url': '/img/2.jpg', 'likes': Math.random() * 1500},
-	{'id': 10, 'url': '/img/3.jpg', 'likes': Math.random() * 1500},
-	{'id': 7, 'url': '/img/4.jpg', 'likes': Math.random() * 1500},
-	{'id': 7, 'url': '/img/5.jpg', 'likes': Math.random() * 1500},
-	{'id': 8, 'url': '/img/6.jpg', 'likes': Math.random() * 1500},
-	{'id': 8, 'url': '/img/7.jpg', 'likes': Math.random() * 1500},
-	{'id': 9, 'url': '/img/8.jpg', 'likes': Math.random() * 1500},
-	{'id': 9, 'url': '/img/9.jpg', 'likes': Math.random() * 1500},
-	{'id': 10, 'url': '/img/k2.jpg', 'likes': Math.random() * 1500},
-	{'id': 10, 'url': '/img/1.jpg', 'likes': Math.random() * 1500},
-	{'id': 8, 'url': '/img/9.jpg', 'likes': Math.random() * 1500},
-	{'id': 8, 'url': '/img/k2.jpg', 'likes': Math.random() * 1500},
-	{'id': 9, 'url': '/img/1.jpg', 'likes': Math.random() * 1500},
-	{'id': 9, 'url': '/img/2.jpg', 'likes': Math.random() * 1500},
-	{'id': 10, 'url': '/img/3.jpg', 'likes': Math.random() * 1500},
-	{'id': 7, 'url': '/img/4.jpg', 'likes': Math.random() * 1500},
-	{'id': 7, 'url': '/img/5.jpg', 'likes': Math.random() * 1500},
-	{'id': 8, 'url': '/img/6.jpg', 'likes': Math.random() * 1500},
-	{'id': 8, 'url': '/img/7.jpg', 'likes': Math.random() * 1500},
-	{'id': 9, 'url': '/img/8.jpg', 'likes': Math.random() * 1500},
-	{'id': 9, 'url': '/img/9.jpg', 'likes': Math.random() * 1500},
-	{'id': 10, 'url': '/img/k2.jpg', 'likes': Math.random() * 1500},
-	{'id': 10, 'url': '/img/1.jpg', 'likes': Math.random() * 1500},
-	{'id': 11, 'url': '/img/2.jpg', 'likes': Math.random() * 1500},
-	{'id': 11, 'url': '/img/3.jpg', 'likes': Math.random() * 1500},
-	{'id': 12, 'url': '/img/4.jpg', 'likes': Math.random() * 1500},
-	{'id': 12, 'url': '/img/5.jpg', 'likes': Math.random() * 1500},
-	{'id': 13, 'url': '/img/6.jpg', 'likes': Math.random() * 1500},
-	{'id': 10, 'url': '/img/1.jpg', 'likes': Math.random() * 1500},
-	{'id': 11, 'url': '/img/2.jpg', 'likes': Math.random() * 1500},
-	{'id': 11, 'url': '/img/3.jpg', 'likes': Math.random() * 1500},
-	{'id': 12, 'url': '/img/4.jpg', 'likes': Math.random() * 1500},
-	{'id': 12, 'url': '/img/5.jpg', 'likes': Math.random() * 1500},
+	{'id': 1, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 2, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
+	{'id': 3, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 4, 'url': 'http://res.cloudinary.com/di5ktveen/image/upload/v1425511757/mud2ayqllyzjpx8uluse.jpg', 'likes': Math.random() * 1000000},
+	{'id': 5, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
+	{'id': 6, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
+	{'id': 7, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
+	{'id': 8, 'url': '/img/7.jpg', 'likes': Math.random() * 1000000},
+	{'id': 9, 'url': '/img/8.jpg', 'likes': Math.random() * 1000000},
+	{'id': 10, 'url': '/img/9.jpg', 'likes': Math.random() * 1000000},
+	{'id': 11, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 12, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
+	{'id': 13, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 14, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
+	{'id': 15, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
+	{'id': 16, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
+	{'id': 17, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
+	{'id': 18, 'url': '/img/7.jpg', 'likes': Math.random() * 1000000},
+	{'id': 19, 'url': '/img/8.jpg', 'likes': Math.random() * 1000000},
+	{'id': 20, 'url': '/img/9.jpg', 'likes': Math.random() * 1000000},
+	{'id': 21, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 22, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
+	{'id': 23, 'url': '/img/9.jpg', 'likes': Math.random() * 1000000},
+	{'id': 24, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 25, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
+	{'id': 26, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 27, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
+	{'id': 28, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
+	{'id': 29, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
+	{'id': 30, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
+	{'id': 31, 'url': '/img/7.jpg', 'likes': Math.random() * 1000000},
+	{'id': 32, 'url': '/img/8.jpg', 'likes': Math.random() * 1000000},
+	{'id': 33, 'url': '/img/9.jpg', 'likes': Math.random() * 1000000},
+	{'id': 34, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 35, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
+	{'id': 36, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 37, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
+	{'id': 38, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
+	{'id': 39, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
+	{'id': 40, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
+	{'id': 41, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
+	{'id': 42, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 43, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
+	{'id': 44, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
+	{'id': 45, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
 /*	{'id': 13, 'url': '/img/6.jpg', 'likes': 88},
 	{'id': 10, 'url': '/img/1.jpg', 'likes': 460},
 	{'id': 11, 'url': '/img/2.jpg', 'likes': 420},
@@ -83,7 +83,7 @@ var imgs = [
 	{'id': 12, 'url': '/img/4.jpg', 'likes': 300},
 	{'id': 12, 'url': '/img/5.jpg', 'likes': 240},
 	{'id': 13, 'url': '/img/6.jpg', 'likes': 88},*/
-	{'id': 13, 'url': '/img/7.jpg', 'likes': 1}];
+	{'id': 46, 'url': '/img/7.jpg', 'likes': Math.random() * 100000}];
 //set w and h proportional to relative upvote count
 
 //put images in tempArr, sorted by likes descending
@@ -97,7 +97,7 @@ var tempImgs = imgs.sort(function compare(a,b) {
 }
 );
 
-console.log(tempImgs[0]);
+//console.log(tempImgs[0]);
 
   var maxWidth = 300;
   var minWidth = 60;
@@ -116,11 +116,11 @@ var setSizes = function(imgArr) {
     }*/
    // console.log(total);
     imgArr[0].w = maxWidth;
-    console.log(maxWidth);
+    //console.log(maxWidth);
     imgArr[0].h = maxHeight;
-	maxWidth = maxWidth - ((maxWidth - minWidth)*.67);
-	maxHeight = maxHeight - ((maxHeight - minHeight)*.67);
-	console.log(maxWidth);
+	maxWidth = maxWidth - ((maxWidth - minWidth)*.68);
+	maxHeight = maxHeight - ((maxHeight - minHeight)*.68);
+	//console.log(maxWidth);
     for (var i = 1; i < imgArrLength; i++) {
 	    var percentage = (imgArr[i].likes - minLikes) / (maxLikes - minLikes);
 	    var calcWidth = minWidth + (percentage * (maxWidth - minWidth));
@@ -128,8 +128,8 @@ var setSizes = function(imgArr) {
 
 	    imgArr[i].w = calcWidth;
 	    imgArr[i].h = calcHeight;
-	    console.log(imgArr[i].likes);
-	    console.log(i + ':  w: ' + imgArr[i].w + ' h: ' + imgArr[i].h);
+	   // console.log(imgArr[i].likes);
+	  //  console.log(i + ':  w: ' + imgArr[i].w + ' h: ' + imgArr[i].h);
 	}
 }
 
@@ -173,7 +173,7 @@ var checkCollision = function (rect, bounds) {
 			    	//outside of boundary
 			    	return true;
 			    }
-			    //collistion with other images
+			    //collision with other images
 			    if (filledImgs[i].x + overlap < rect.x + rect.w &&
 			        filledImgs[i].x + filledImgs[i].w - overlap  > rect.x &&
 			        filledImgs[i].y + overlap < rect.y + rect.h &&
@@ -192,12 +192,13 @@ var checkCollision = function (rect, bounds) {
 var placeOne = function(imageObj, first, index) {
 		var newImg= $('<img/>', {'class': 'box'})
 		$('#view').append(newImg);
+		newImg.attr("id", imageObj.id);
 		newImg.css({
 			'height'				: imageObj.h,
 			'width'					: imageObj.w,
 			'top'					: imageObj.top + topOffset,
 			'left'					: imageObj.left + leftOffset,
-			'border'				: '1px solid black',
+			/*'border'				: '1px solid black',*/
 			'border-radius' 		: '12px',
 			'background-image'  	: 'url(' + imageObj.url + ')',
 			'background-repeat' 	: 'no-repeat',
@@ -205,6 +206,7 @@ var placeOne = function(imageObj, first, index) {
 			'background-size'		: '100% 100%',
 			'z-index'				: imgArrLength - index
 			})
+
 		if(first) {
 			newImg.attr("id","img1");
 			newImg.css({
@@ -214,26 +216,29 @@ var placeOne = function(imageObj, first, index) {
 };
 
 //place first image
-var placeMainImg = function(imageObj) {
+var placeMainImg = function(imageObj, cb) {
 	tempImgs[0].left = xCenter - imageObj.w/2;
 	tempImgs[0].top  = yCenter - imageObj.h/2;
 	placeOne(tempImgs[0], true);
 	filledImgs.push({   'x': tempImgs[0].left,
 						'y': tempImgs[0].top,
 						'w': tempImgs[0].w,
-						'h': tempImgs[0].h}) 
+						'h': tempImgs[0].h})
+	
+	cb(tempImgs[1], tempImgs[2]); 
 	
 };
 //place 2nd and 3rd images to right and left centered, for better aesthetics
 var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 	var newImg= $('<img/>', {'class': 'box'});
+		newImg.attr("id", 'img2');
 		$('#view').append(newImg);
 		newImg.css({
 			'height'				: imgObj2nd.h,
 			'width'					: imgObj2nd.w,
 /*			'top'					: imgObj2nd.top + topOffset,
 			'left'					: imgObj2nd.left + leftOffset,*/
-			'border'				: '1px solid black',
+			/*'border'				: '1px solid black',*/
 			'border-radius' 		: '12px',
 			'background-image'  	: 'url(' + imgObj2nd.url + ')',
 			'background-repeat' 	: 'no-repeat',
@@ -246,6 +251,8 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 				at: "right - 15",
 				of: "#img1"
 			})
+		//newImg.addClass('hidden');
+			
 
 			tempImgs[1].left = newImg.position().left;
 			tempImgs[1].top = newImg.position().top;
@@ -254,16 +261,17 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 									'y': newImg.position().top,
 									'w': imgObj2nd.w,
 									'h': imgObj2nd.h}) 
-				console.log(filledImgs)
+				//console.log(filledImgs)
 
 		var newImg2= $('<img/>', {'class': 'box'});
+		newImg2.attr("id", 'img3');
 		$('#view').append(newImg2);
 		newImg2.css({
 			'height'				: imgObj3rd.h,
 			'width'					: imgObj3rd.w,
-/*			'top'					: imgObj3rd.top + topOffset,
-			'left'					: imgObj3rd.left + leftOffset,*/
-			'border'				: '1px solid black',
+			'top'					: imgObj3rd.top + topOffset,
+			'left'					: imgObj3rd.left + leftOffset,
+			/*'border'				: '1px solid black',*/
 			'border-radius' 		: '12px',
 			'background-image'  	: 'url(' + imgObj3rd.url + ')',
 			'background-repeat' 	: 'no-repeat',
@@ -276,6 +284,9 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 				at: "left+15",
 				of: "#img1"
 			})
+			
+		//newImg2.addClass('hidden');
+			
 
 			tempImgs[2].left = newImg2.position().left;
 			tempImgs[2].top = newImg2.position().top;
@@ -295,7 +306,7 @@ function getPosition (imgObj, start, callback) {
 	var x = xCenter;
 	var y = yCenter;
 	//console.log(x, y);
-	var dy = $(canvas).height()/80/*(imgObj.h/4)*/;
+	var dy = $(canvas).height()/80/*(imgObj.h/8)*/;
 	var dx = dy*(ratio);
 	var counter = 1;
 	var horizontal = true;
@@ -386,10 +397,11 @@ bounds = {
 //console.log('bounds:');
 //console.log(bounds);
 //place first image
-console.log('first image');
-console.log(tempImgs[0]);
-placeMainImg(tempImgs[0]);
-placeSecondAndThird(tempImgs[1], tempImgs[2]);
+//console.log('first image');
+//console.log(tempImgs[0]);
+placeMainImg(tempImgs[0], placeSecondAndThird);
+console.log(tempImgs[1]);
+/*placeSecondAndThird(tempImgs[1], tempImgs[2]);*/
 
 //loop through images and populate location property
 
@@ -407,6 +419,21 @@ for (var i = 3; i < imgArrLength; i++) {
 	placeOne(tempImgs[i], false, i);
 }
 
+$('.box').hide();
+
+
+(function show(idx) {
+  var $elements = $('.box');
+  $elements.eq(idx).show("scale", {easing: 'easeInOutQuad'}, 30, function () {
+    show(idx + 1);
+  });
+}(0));
+
+ /*$('.box').show("scale", {}, 1500).animate({'opacity' : 1});*/
+/* $(".box").each(function(i) {
+    $(this).show("scale", {}, 1500).animate({'opacity' : 1});
+});*/
+/*   $('.box img').show("scale", {}, 1000).animate({'opacity' : 1});*/
 //after placement of all images, clear filledImgs
 
 
@@ -423,6 +450,7 @@ var tempZIndex = 0;
 
 	$('.box').on('click', function() {
 		console.log($(this).attr('id'));
+		console.log($(this).position());
 	})
 
 
