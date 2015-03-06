@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	console.log('ready');
+var lowOpacity = 1;
+var drawLines = false;
+
 //cloudinary test
 
 $.cloudinary.config("cloud_name", "di5ktveen");
@@ -45,33 +48,33 @@ var imgs = [
 	{'id': 13, 'url': $.cloudinary.url('fox.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 14, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 15, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 16, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 17, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 18, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 19, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 20, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 16, 'url': $.cloudinary.url('fox', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 17, 'url': $.cloudinary.url('fox', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 18, 'url': $.cloudinary.url('fox', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 19, 'url': $.cloudinary.url('fox', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 20, 'url': $.cloudinary.url('fox', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 21, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 22, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 22, 'url': $.cloudinary.url('fox', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 23, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 24, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 25, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 26, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 27, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 28, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 29, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 27, 'url': $.cloudinary.url('goat.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 28, 'url': $.cloudinary.url('goat.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 29, 'url': $.cloudinary.url('goat.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 30, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 31, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 32, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 33, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 34, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 34, 'url': $.cloudinary.url('goat.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 35, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 36, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 37, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 38, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
-	{'id': 39, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 36, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 37, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 38, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
+	{'id': 39, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
 	{'id': 40, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 41, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
-	{'id': 42, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 42, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
 	{'id': 43, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 44, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 45, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
@@ -227,7 +230,8 @@ var placeOne = function(imageObj, first, index) {
 			'background-repeat' 	: 'no-repeat',
 			'background-position'	: 'left top',
 			'background-size'		: '100% 100%',
-			'z-index'				: imgArrLength - index
+			'z-index'				: imgArrLength - index,
+			'opacity'				: lowOpacity
 			})
 
 		if(first) {
@@ -268,7 +272,8 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 			'background-repeat' 	: 'no-repeat',
 			'background-position'	: 'left top',
 			'background-size'		: '100% 100%',
-			'z-index'				: imgArrLength - 1
+			'z-index'				: imgArrLength - 1,
+			'opacity'				: lowOpacity
 			})
 			.position({
 				my: "left",
@@ -301,7 +306,8 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 			'background-repeat' 	: 'no-repeat',
 			'background-position'	: 'left top',
 			'background-size'		: '100% 100%',
-			'z-index'				: imgArrLength - 2
+			'z-index'				: imgArrLength - 2,
+			'opacity'				: lowOpacity
 			})
 			.position({
 				my: "right",
@@ -332,6 +338,7 @@ function getPosition (imgObj, start, callback) {
 	//console.log(x, y);
 	var dy = $(canvas).height()/80/*(imgObj.h/8)*/;
 	var dx = dy*(ratio);
+	ratio = ratio/1.01
 	var counter = 1;
 	var horizontal = true;
 	var reverse;
@@ -367,13 +374,17 @@ function getPosition (imgObj, start, callback) {
       			ctx.beginPath();
 				ctx.moveTo(x, y);
 				ctx.lineTo(x-shiftX,y);
-				//ctx.stroke();
+				if (drawLines) {
+				ctx.stroke();
+				}
 				x = x-shiftX;
 			} else {
 				ctx.beginPath();
 				ctx.moveTo(x, y);
 				ctx.lineTo(x,y-shiftY);
-				//ctx.stroke();
+				if (drawLines) {
+				ctx.stroke();
+				}
 				y = y-shiftY;
 			}
 			//console.log('after', x, y)
@@ -410,7 +421,8 @@ var topOffset = $(canvas).position().top;
 var leftOffset = $(canvas).position().left;
 var xCenter =($(canvas).width()/2);
 var yCenter =($(canvas).height()/2);
-var ratio = ($(canvas).width()/$(canvas).height());
+var ratio = ($(canvas).width()/$(canvas).height())*1.2;
+console.log(ratio);
 
 bounds = {
 	'x': leftOffset,
@@ -478,11 +490,11 @@ $('.box').load(function show(idx) {
 var tempZIndex = 0;
 	$('.box').on('mouseenter', function() {
 		tempZIndex = $(this).css('z-index');
-		$(this).css({'z-index': 100});
+		$(this).css({'z-index': 100, 'opacity': 1});
 		//console.log(tempZIndex);
 	})
 	.on('mouseleave', function() {
-		$(this).css({'z-index': tempZIndex});
+		$(this).css({'z-index': tempZIndex, 'opacity': lowOpacity});
 	})
 
 
