@@ -1,5 +1,13 @@
 $(document).ready(function() {
 	console.log('ready');
+//cloudinary test
+
+$.cloudinary.config("cloud_name", "di5ktveen");
+
+
+//end cloudinary test
+
+var mainImgId;
 
  function getMaxOfArray(objArr) {
  		objArr.sort(function(a, b) {
@@ -17,53 +25,56 @@ $(document).ready(function() {
        return objArr[0].likes;
   }
 
+var test = $.cloudinary.url('goat.jpg', { width: 300, height: 200, crop: 'fill' })
+console.log(test);
 //get images (will not have w and h)
+//format {id, url, likes}
 var imgs = [
-	{'id': 1, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 2, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
-	{'id': 3, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 4, 'url': 'http://res.cloudinary.com/di5ktveen/image/upload/v1425511757/mud2ayqllyzjpx8uluse.jpg', 'likes': Math.random() * 1000000},
-	{'id': 5, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
-	{'id': 6, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
-	{'id': 7, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
-	{'id': 8, 'url': '/img/7.jpg', 'likes': Math.random() * 1000000},
-	{'id': 9, 'url': '/img/8.jpg', 'likes': Math.random() * 1000000},
-	{'id': 10, 'url': '/img/9.jpg', 'likes': Math.random() * 1000000},
-	{'id': 11, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 12, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
-	{'id': 13, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 14, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
-	{'id': 15, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
-	{'id': 16, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
-	{'id': 17, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
-	{'id': 18, 'url': '/img/7.jpg', 'likes': Math.random() * 1000000},
-	{'id': 19, 'url': '/img/8.jpg', 'likes': Math.random() * 1000000},
-	{'id': 20, 'url': '/img/9.jpg', 'likes': Math.random() * 1000000},
-	{'id': 21, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 22, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
-	{'id': 23, 'url': '/img/9.jpg', 'likes': Math.random() * 1000000},
-	{'id': 24, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 25, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
-	{'id': 26, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 27, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
-	{'id': 28, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
-	{'id': 29, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
-	{'id': 30, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
-	{'id': 31, 'url': '/img/7.jpg', 'likes': Math.random() * 1000000},
-	{'id': 32, 'url': '/img/8.jpg', 'likes': Math.random() * 1000000},
-	{'id': 33, 'url': '/img/9.jpg', 'likes': Math.random() * 1000000},
-	{'id': 34, 'url': '/img/k2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 35, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
-	{'id': 36, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 37, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
-	{'id': 38, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
-	{'id': 39, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
-	{'id': 40, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
+	{'id': 1, 'url': $.cloudinary.url('goat.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 2, 'url': $.cloudinary.url('goat.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 3, 'url': $.cloudinary.url('fox.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 4, 'url': $.cloudinary.url('fox.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 5, 'url': $.cloudinary.url('fox.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 6, 'url': $.cloudinary.url('fox.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 7, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 8, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 9, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 10, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 11, 'url': $.cloudinary.url('fox.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 12, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 13, 'url': $.cloudinary.url('fox.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 14, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 15, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 16, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 17, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 18, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 19, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 20, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 21, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 22, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 23, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 24, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 25, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 26, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 27, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 28, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 29, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 30, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 31, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 32, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 33, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 34, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 35, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 36, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 37, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 38, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 39, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 40, 'url': $.cloudinary.url('the_real_eager', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
 	{'id': 41, 'url': '/img/1.jpg', 'likes': Math.random() * 1000000},
-	{'id': 42, 'url': '/img/2.jpg', 'likes': Math.random() * 1000000},
-	{'id': 43, 'url': '/img/3.jpg', 'likes': Math.random() * 1000000},
-	{'id': 44, 'url': '/img/4.jpg', 'likes': Math.random() * 1000000},
-	{'id': 45, 'url': '/img/5.jpg', 'likes': Math.random() * 1000000},
+	{'id': 42, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 43, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 44, 'url': $.cloudinary.url('graydog.jpg', { width: 300, height: 200, crop: 'fill' }), 'likes': Math.random() * 1000000},
+	{'id': 45, 'url': '/img/6.jpg', 'likes': Math.random() * 1000000},
 /*	{'id': 13, 'url': '/img/6.jpg', 'likes': 88},
 	{'id': 10, 'url': '/img/1.jpg', 'likes': 460},
 	{'id': 11, 'url': '/img/2.jpg', 'likes': 420},
@@ -83,8 +94,12 @@ var imgs = [
 	{'id': 12, 'url': '/img/4.jpg', 'likes': 300},
 	{'id': 12, 'url': '/img/5.jpg', 'likes': 240},
 	{'id': 13, 'url': '/img/6.jpg', 'likes': 88},*/
-	{'id': 46, 'url': '/img/7.jpg', 'likes': Math.random() * 100000}];
+	{'id': 46, 'url': '/img/k2.jpg', 'likes': Math.random() * 100000}];
 //set w and h proportional to relative upvote count
+
+//for testing
+var getThisMany = Math.floor(Math.random()*(imgs.length - 4) + 4);
+console.log(getThisMany);
 
 //put images in tempArr, sorted by likes descending
 var imgArrLength = imgs.length;
@@ -103,7 +118,7 @@ var tempImgs = imgs.sort(function compare(a,b) {
   var minWidth = 60;
   var maxHeight = 200;
   var minHeight = 40;
-  var overlap = 6;
+  var overlap = 10;
   var minLikes = getMinOfArray(tempImgs);
   //console.log(minLikes);
   var maxLikes = getMaxOfArray(tempImgs);
@@ -118,10 +133,14 @@ var setSizes = function(imgArr) {
     imgArr[0].w = maxWidth;
     //console.log(maxWidth);
     imgArr[0].h = maxHeight;
+    imgArr[1].w = maxWidth * .62;
+    imgArr[1].h = maxHeight * .62;
+    imgArr[2].w = maxWidth * .62;
+    imgArr[2].h = maxHeight * .62;
 	maxWidth = maxWidth - ((maxWidth - minWidth)*.68);
 	maxHeight = maxHeight - ((maxHeight - minHeight)*.68);
 	//console.log(maxWidth);
-    for (var i = 1; i < imgArrLength; i++) {
+    for (var i = 3; i < getThisMany; i++) {
 	    var percentage = (imgArr[i].likes - minLikes) / (maxLikes - minLikes);
 	    var calcWidth = minWidth + (percentage * (maxWidth - minWidth));
 	    var calcHeight = minHeight + (percentage * (maxHeight - minHeight));
@@ -137,7 +156,7 @@ setSizes(tempImgs);
 
 //console.log(tempImgs);
 /*var imgs = [
-	{'id': 1, 'url': '/img/k2.jpg', 'w': 400, 'h': 300},
+	{'id': 1, 'url': '$.cloudinary.url('graydog.jpg')', 'w': 400, 'h': 300},
 	{'id': 2, 'url': '/img/k2.jpg', 'w': 200, 'h': 170},
 	{'id': 2, 'url': '/img/k2.jpg', 'w': 200, 'h': 170},
 	{'id': 3, 'url': '/img/k2.jpg', 'w': 190, 'h': 150},
@@ -187,7 +206,11 @@ var checkCollision = function (rect, bounds) {
 			 return false;
 		}
 
+
+
 //place an image
+
+
 //imageObj w/ position ex: {id, url, left, top, w, h}
 var placeOne = function(imageObj, first, index) {
 		var newImg= $('<img/>', {'class': 'box'})
@@ -208,7 +231,8 @@ var placeOne = function(imageObj, first, index) {
 			})
 
 		if(first) {
-			newImg.attr("id","img1");
+			mainImgId = imageObj.id;
+			//newImg.attr("id","img1");
 			newImg.css({
 				'z-index': imgArrLength
 			})
@@ -231,7 +255,7 @@ var placeMainImg = function(imageObj, cb) {
 //place 2nd and 3rd images to right and left centered, for better aesthetics
 var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 	var newImg= $('<img/>', {'class': 'box'});
-		newImg.attr("id", 'img2');
+		newImg.attr("id", imgObj2nd.id);
 		$('#view').append(newImg);
 		newImg.css({
 			'height'				: imgObj2nd.h,
@@ -248,8 +272,8 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 			})
 			.position({
 				my: "left",
-				at: "right - 15",
-				of: "#img1"
+				at: "right-"+overlap,
+				of: '#'+mainImgId
 			})
 		//newImg.addClass('hidden');
 			
@@ -264,7 +288,7 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 				//console.log(filledImgs)
 
 		var newImg2= $('<img/>', {'class': 'box'});
-		newImg2.attr("id", 'img3');
+		newImg2.attr("id", imgObj3rd.id);
 		$('#view').append(newImg2);
 		newImg2.css({
 			'height'				: imgObj3rd.h,
@@ -281,8 +305,8 @@ var placeSecondAndThird = function(imgObj2nd, imgObj3rd) {
 			})
 			.position({
 				my: "right",
-				at: "left+15",
-				of: "#img1"
+				at: "left+"+overlap,
+				of: '#'+mainImgId
 			})
 			
 		//newImg2.addClass('hidden');
@@ -406,7 +430,7 @@ console.log(tempImgs[1]);
 //loop through images and populate location property
 
 //first 3 images have already been placed, so i starts at 3
-for (var i = 3; i < imgArrLength; i++) {
+for (var i = 3; i < getThisMany; i++) {
 	//attach position info to imgs
 	getPosition(tempImgs[i], i, function(imgObjWithPosition) {
 		tempImgs[i] = imgObjWithPosition;
@@ -415,19 +439,33 @@ for (var i = 3; i < imgArrLength; i++) {
 //console.log(tempImgs);
 
 //first 3 images have already been placed, so i starts at 3
-for (var i = 3; i < imgArrLength; i++) {
+for (var i = 3; i < getThisMany; i++) {
 	placeOne(tempImgs[i], false, i);
 }
 
 $('.box').hide();
 
-
-(function show(idx) {
+$('.box').load(function show(idx) {
   var $elements = $('.box');
-  $elements.eq(idx).show("scale", {easing: 'easeInOutQuad'}, 30, function () {
+  $elements.eq(idx).show("scale", {easing: 'easeInOutQuad'}, 45, function () {
     show(idx + 1);
   });
 }(0));
+
+//TODO try animating all simultaneously
+/*$('.box').load(function show(idx) {
+  var $elements = $('.box');
+  $elements.eq(idx).show("scale", {easing: 'easeInOutQuad'}, 45, function () {
+    show(idx + 1);
+  });
+}(0));*/
+
+/*(function show(idx) {
+  var $elements = $('.box');
+  $elements.eq(idx).show("scale", {easing: 'easeInOutQuad'}, 40, function () {
+    show(idx + 1);
+  });
+}(0));*/
 
  /*$('.box').show("scale", {}, 1500).animate({'opacity' : 1});*/
 /* $(".box").each(function(i) {
